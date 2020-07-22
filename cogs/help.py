@@ -39,10 +39,16 @@ class Help(commands.Cog):
         elif category.lower() == "4":
             embed = discord.Embed(title="Page 4:", description="k!help {page}")
             embed.add_field(name="k!meme", value="Gives you a random meme from reddit.", inline=False)
+            embed.add_field(name="k!tech", value="Gives you a random tech meme from reddit.", inline=False)
             embed.set_footer(text="Requested by " + ctx.author.name + " • " + str(current_time.day) + "/" + str(
                 current_time.month) + "/" + str(current_time.year), icon_url=ctx.author.avatar_url)
             await ctx.send(embed=embed)
-
+        elif category.lower() == "5":
+            embed = discord.Embed(title="Page 4:", description="k!help {page}")
+            embed.add_field(name="k!slowmode", value="Sets the slowmode of the channel.", inline=False)
+            embed.set_footer(text="Requested by " + ctx.author.name + " • " + str(current_time.day) + "/" + str(
+                current_time.month) + "/" + str(current_time.year), icon_url=ctx.author.avatar_url)
+            await ctx.send(embed=embed)
 
 def setup(bot):
     bot.add_cog(Help(bot))

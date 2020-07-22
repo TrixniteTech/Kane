@@ -8,14 +8,6 @@ from pathlib import Path
 import discord
 from discord.ext import commands
 
-def get_prefix(client, message):
-    try:
-        with open('data/prefixes.json', 'r') as f:
-            prefixes = json.load(f)
-
-        return prefixes[str(message.guild.id)]
-    except:
-        return 'k!'
 
 
 
@@ -81,7 +73,7 @@ class Bot(commands.Bot):
     async def on_guild_join(self, guild):
 
         embed = discord.Embed(title="Kane",
-                              description="Thank you for inviting Kane!\n\nPlease use `?help` for a list of commands")
+                              description="Thank you for inviting Kane!\n\nPlease use `k!help` for a list of commands")
 
         await guild.text_channels[0].send(embed=embed)
 
