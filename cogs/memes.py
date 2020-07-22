@@ -71,27 +71,5 @@ class Memes(commands.Cog):
                     pass
         except Exception as e:
             await ctx.send(f"An error occurred while attempting to perform that command.\nInfo: `{e}`")
-
-    @commands.command()
-    async def stonks(self, ctx):
-        try:
-            while True:
-                request = "https://meme-api.herokuapp.com/gimme/stonks"
-                r = requests.get(request)
-                a = r.json()
-                if a["nsfw"] == False:
-                    title = a["title"]
-                    embed = discord.Embed(title=title)
-                    embed.set_image(url=a["url"])
-                    current_time = datetime.datetime.now()
-                    embed.set_footer(text="Requested by " + ctx.author.name + " • " + str(current_time.day) + "/" + str(
-                        current_time.month) + "/" + str(current_time.year), icon_url=ctx.author.avatar_url)
-                    await ctx.send(embed=embed)
-                    break
-                else:
-                    pass
-        except Exception as e:
-            await ctx.send(f"An error occurred while attempting to perform that command.\nInfo: `{e}`")
-
 def setup(bot):
     bot.add_cog(Memes(bot))
