@@ -97,7 +97,7 @@ class Memes(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self, message):
         if message.content.startswith("r/"):
-            msg = message.split("/")
+            msg = message.content.split("/")
             subreddit = msg[1]
             try:
                 while True:
