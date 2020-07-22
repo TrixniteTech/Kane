@@ -38,7 +38,7 @@ class Memes(commands.Cog):
                 r = requests.get(request)
                 a = r.json()
                 if a["nsfw"] == False:
-                    title = a["title"] + " from r/" + a["subreddit"]
+                    title = a["title"] 
                     embed = discord.Embed(title=title)
                     embed.set_image(url=a["url"])
                     current_time = datetime.datetime.now()
@@ -59,7 +59,7 @@ class Memes(commands.Cog):
                 r = requests.get(request)
                 a = r.json()
                 if a["nsfw"] == False:
-                    title = a["title"] + " from r/" + a["subreddit"]
+                    title = a["title"]
                     embed = discord.Embed(title=title)
                     embed.set_image(url=a["url"])
                     current_time = datetime.datetime.now()
@@ -80,7 +80,7 @@ class Memes(commands.Cog):
                 r = requests.get(request)
                 a = r.json()
                 if a["nsfw"] == False:
-                    title = a["title"] + " from r/" + a["subreddit"]
+                    title = a["title"]
                     embed = discord.Embed(title=title)
                     embed.set_image(url=a["url"])
                     current_time = datetime.datetime.now()
