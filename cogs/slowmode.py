@@ -7,6 +7,7 @@ class Slowmode(commands.Cog):
         self.bot = bot
 
     @commands.command()
+    @commands.has_permissions(manage_messages=True)
     async def slowmode(self, ctx, delay=3):
         current_time = datetime.datetime.now()
         if not 0 <= delay <= 21600:
