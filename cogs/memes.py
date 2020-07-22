@@ -117,6 +117,6 @@ class Memes(commands.Cog):
                     pass
             except Exception as e:
                 await message.channel.send(f"An error occurred while attempting to perform that command.\nInfo: `{e}`")
-        await self.bot.process_commands(ctx)
+        await self.bot.process_commands(message)
 def setup(bot):
     bot.add_cog(Memes(bot))
