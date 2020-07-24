@@ -93,15 +93,15 @@ class Memes(commands.Cog):
         except Exception as e:
             await ctx.send(f"An error occurred while attempting to perform that command.\nInfo: `{e}`")
 
-    @commands.command(aliases=['c', 'kitten'])
-    async def cat(self, ctx):
+    @commands.command(aliases=['c', 'kitten', 'cat'])
+    async def cats(self, ctx):
         try:
             while True:
                 request = "https://meme-api.herokuapp.com/gimme/cats"
                 r = requests.get(request)
                 a = r.json()
                 if a["nsfw"] == False:
-                    title = a["title"]
+                    title = "Here is a photo of a cat!"
                     embed = discord.Embed(title=title)
                     embed.set_image(url=a["url"])
                     current_time = datetime.datetime.now()
