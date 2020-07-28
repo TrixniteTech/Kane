@@ -8,12 +8,12 @@ class Avatar(commands.Cog):
 
     @commands.command()
     async def avatar(self, ctx, *, avamember: discord.Member = None):
-        userAvatarUrl = avamember.icon_url
+        userAvatarUrl = avamember.avatar_url
         await ctx.send(userAvatarUrl)
 
     @commands.command()
     async def guildimage(self, ctx):
-        userAvatarUrl = ctx.guild.avatar_url
+        userAvatarUrl = ctx.guild.icon_url
         await ctx.send(userAvatarUrl)
 
 
