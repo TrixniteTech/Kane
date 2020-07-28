@@ -8,15 +8,7 @@ class Impersonate(commands.Cog):
 
     @commands.command()
     async def impersonate(self, ctx, user:discord.User, *, message):
-        current_time = datetime.datetime.now()
-        if not 0 <= delay <= 21600:
-            await ctx.send("Invalid delay. Please input delay between 0 (off) and 21600.")
-        else:
-            await ctx.channel.edit(slowmode_delay=delay)
-            embed = discord.Embed(title="Slowmode changed!", description=f"The slowmode is now {delay}.")
-            embed.set_footer(text="Requested by " + ctx.author.name + " • " + str(current_time.day) + "/" + str(
-                current_time.month) + "/" + str(current_time.year), icon_url=ctx.author.avatar_url)
-            await ctx.send(embed=embed)
+        await ctx.send("Under development")
 
 def setup(bot):
     bot.add_cog(Impersonate(bot))
