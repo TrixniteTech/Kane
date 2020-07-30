@@ -15,6 +15,8 @@ class System(commands.Cog):
                 ram_usage = round(psutil.virtual_memory().percent,1)
                 cpu_usage = round(psutil.cpu_percent(),1)
                 disk = psutil.disk_usage('/')
+                p = psutil.Process()
+                p.create_time()
                 if cpu_usage < 49:
                     embed=discord.Embed(color=0x35e35c)
                     embed.add_field(name="Memory usage:", value=str(ram_usage)+"%", inline=True)
@@ -23,6 +25,8 @@ class System(commands.Cog):
                     embed.add_field(name="Process:", value=str(psutil.Process().exe()), inline=False)
                     embed.add_field(name="Disk used:", value=str(disk.percent) + "%", inline=False)
                     embed.add_field(name="Boot time:", value=str(datetime.datetime.fromtimestamp(psutil.boot_time()).strftime("%Y-%m-%d %H:%M:%S")), inline=False)
+                    embed.add_field(name="Time started:", value=str(datetime.datetime.fromtimestamp(p.create_time()).strftime("%Y-%m-%d %H:%M:%S")), inline=False)
+                    embed.set_footer(text="All times are in GMT.")
                     await ctx.send(embed=embed)
                 else:
                     embed=discord.Embed(color=0xeb452e)
@@ -31,6 +35,8 @@ class System(commands.Cog):
                     embed.add_field(name="Core used:", value=str(psutil.Process().cpu_num()), inline=False)
                     embed.add_field(name="Process:", value=str(psutil.Process().exe()), inline=False)
                     embed.add_field(name="Boot time:", value=str(datetime.datetime.fromtimestamp(psutil.boot_time()).strftime("%Y-%m-%d %H:%M:%S")), inline=False)
+                    embed.add_field(name="Time started:", value=str(datetime.datetime.fromtimestamp(p.create_time()).strftime("%Y-%m-%d %H:%M:%S")), inline=False)
+                    embed.set_footer(text="All times are in GMT.")
                     await ctx.send(embed=embed)        
 
     @commands.command()
