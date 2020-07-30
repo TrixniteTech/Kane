@@ -27,9 +27,13 @@ class System(commands.Cog):
                 try:
                     self.bot.reload_extension(f'cogs.{extension}')
                     print(f'reloaded {extension}')
+                    embed=discord.Embed(title=f"reloaded {extension}", color=0x35e35c)
+                    await ctx.send(embed=embed)
                 except Exception as e:
                     error = f'{extension}\n {type(e).__name__} : {e}'
                     print(f'failed to reload extension {error}')
+                    embed=discord.Embed(title=f"failed to reload extension {error}", color=0xeb452e)
+                    await ctx.send(embed=embed)
                 print('-' * 10)
                 
 
