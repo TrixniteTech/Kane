@@ -45,7 +45,7 @@ class Hypixel(commands.Cog):
                     with open('data/mcnames.json', 'r') as f:
                         mcnames = json.load(f)
                     username = mcnames[str(ctx.author.id)]
-                    request = "https://api.hypixel.net/player?key=ab6c24f1-d5f4-4b88-9a99-c7bfa67d55dd&name=" + username
+                    request = "https://api.hypixel.net/player?key=504fb65b-4149-4556-9595-1bbb1452c55d&name=" + username
                     r = requests.get(request)
                     a = json.loads(r.text)
                     ab = str(a["player"]["displayname"])
@@ -62,7 +62,7 @@ class Hypixel(commands.Cog):
                 except:
                     await ctx.send("Please use `k!setusername Notch` first!")
             else:
-                request = "https://api.hypixel.net/player?key=ab6c24f1-d5f4-4b88-9a99-c7bfa67d55dd&name=" + username
+                request = "https://api.hypixel.net/player?key=504fb65b-4149-4556-9595-1bbb1452c55d&name=" + username
                 r = requests.get(request)
                 a = json.loads(r.text)
                 ab = str(a["player"]["displayname"])
@@ -87,7 +87,7 @@ class Hypixel(commands.Cog):
                     with open('data/mcnames.json', 'r') as f:
                         mcnames = json.load(f)
                     username = mcnames[str(ctx.author.id)]
-                    request = "https://api.hypixel.net/player?key=ab6c24f1-d5f4-4b88-9a99-c7bfa67d55dd&name=" + username
+                    request = "https://api.hypixel.net/player?key=504fb65b-4149-4556-9595-1bbb1452c55d&name=" + username
                     r = requests.get(request)
                     a = json.loads(r.text)
                     ab = str(a["player"]["displayname"])
@@ -104,7 +104,7 @@ class Hypixel(commands.Cog):
                 except:
                     await ctx.send("Please use `k!setusername Notch` first!")
             else:
-                request = "https://api.hypixel.net/player?key=ab6c24f1-d5f4-4b88-9a99-c7bfa67d55dd&name=" + username
+                request = "https://api.hypixel.net/player?key=504fb65b-4149-4556-9595-1bbb1452c55d&name=" + username
                 r = requests.get(request)
                 a = json.loads(r.text)
                 ab = str(a["player"]["displayname"])
