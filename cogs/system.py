@@ -17,6 +17,19 @@ class System(commands.Cog):
                 embed.add_field(name="Memory usage:", value=str(mem_per)+"%", inline=False)
                 embed.add_field(name="CPU usage:", value=str(cpu_per)+"%", inline=True)
                 await ctx.send(embed=embed)
+
+    @commands.command()
+    async def reload(self, ctx):
+        if ctx.author.id == 428450288668508160:
+            cogs = [x.stem for x in Path('cogs').glob('*.py')]
+            for extension in cogs:
+                try:
+                    self.reload_extension(f'cogs.{extension}')
+                    print(f'reloaded {extension}')
+                except Exception as e:
+                    error = f'{extension}\n {type(e).__name__} : {e}'
+                    print(f'failed to reload extension {error}')
+                print('-' * 10)
                 
 
 
