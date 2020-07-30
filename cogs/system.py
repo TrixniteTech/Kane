@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import datetime
 import psutil
+from pathlib import Path
 
 class System(commands.Cog):
     def __init__(self, bot):
@@ -24,7 +25,7 @@ class System(commands.Cog):
             cogs = [x.stem for x in Path('cogs').glob('*.py')]
             for extension in cogs:
                 try:
-                    self.reload_extension(f'cogs.{extension}')
+                    self.bot.reload_extension(f'cogs.{extension}')
                     print(f'reloaded {extension}')
                 except Exception as e:
                     error = f'{extension}\n {type(e).__name__} : {e}'
