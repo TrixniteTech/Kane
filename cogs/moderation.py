@@ -16,7 +16,19 @@ class Moderation(commands.Cog):
             current_time.month) + "/" + str(current_time.year), icon_url=ctx.author.avatar_url)
         await ctx.send(embed=embed)
         await member.kick(reason=reason)
+        
+        
+    @kick.error
+    async def kick_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send(f'{ctx.author.mention} You should have mentioned the user to be kicked!') 
+        
+        if isinstance(error, commands.MissingPermissions):
+            await ctx.send(f'{ctx.author.mention} Uh oh! You have no permission to use this command!')    
 
+        else:
+            raise(error)
+        
     @commands.command()
     @commands.has_permissions(ban_members=True)
     async def ban(self, ctx, member: discord.Member, *, reason=None):
@@ -27,6 +39,17 @@ class Moderation(commands.Cog):
             current_time.month) + "/" + str(current_time.year), icon_url=ctx.author.avatar_url)
         await ctx.send(embed=embed)
         await member.ban(reason=reason)
+        
+    @ban.error
+    async def ban_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send(f'{ctx.author.mention}You should have mentioned the user to be banned!')   
+        
+        if isinstance(error, commands.MissingPermissions):
+            await ctx.send(f'{ctx.author.mention}  Uh oh! You have no permission to use this command!')    
+
+        else:
+            raise(error)        
 
 def setup(bot):
     bot.add_cog(Moderation(bot))
